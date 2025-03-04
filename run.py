@@ -28,6 +28,9 @@ intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix='=', intents=intents)
 
+# Remove the default help command
+bot.remove_command('help')
+
 # Spotify client setup
 sp = None
 
@@ -270,7 +273,8 @@ async def help_command(ctx, command=None):
         "skip (s)": "Skip to the next song.",
         "previous (pr)": "Go back to the previous song.",
         "forward (fr)": "Fast forward the current song by a specified number of seconds (default: 15).",
-        "help (h)": "Display this help message."
+        "help (h)": "Display this help message.",
+        "now (np)": "Display information about the currently playing track."
     }
     
     if command:
